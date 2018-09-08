@@ -315,9 +315,9 @@ $(function(){
     if (animation) {
 
       var text = $('#home .typer-title'),
-          textOne = "i'm ui/ux designer",
-          textTwo = "let's work together",
-          textThree = "i can create awesome stuff";
+          textOne = "Student",
+          textTwo = "Software engineer",
+          textThree = "let's work together";
 
           if (!!$.prototype.typer) {
             text.typer([textOne,textTwo,textThree]);
