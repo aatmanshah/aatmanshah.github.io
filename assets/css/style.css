@@ -1,0 +1,56 @@
+body {
+  background-color: #002b36;
+  color: #dfe8e8; /* light gray-blue */
+  font-family: 'Fira Mono', monospace;
+  font-size: 15px;
+  margin: 0;
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+#terminal {
+  max-width: 800px;
+  margin: 0 auto;
+  white-space: pre-wrap;
+}
+
+.line {
+  margin-bottom: 0.6em;
+}
+
+.indent {
+  padding-left: 2ch;
+}
+
+.indent2 {
+  padding-left: 4ch;
+}
+
+.prompt {
+  color: #268bd2; /* soft blue */
+  margin-right: 0.5ch;
+}
+
+a {
+  color: #2aa198; /* teal */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: #b58900; /* change this to your preferred color */
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.7em;
+}
+
+.company-icon {
+  height: 1.5em;
+  width: 1.5em;
+  vertical-align: middle;
+  margin-right: 0.5ch;
+  filter: invert(80%); /* makes icons visible on dark backgrounds */
+}
