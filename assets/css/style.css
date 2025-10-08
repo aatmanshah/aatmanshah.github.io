@@ -1,3 +1,4 @@
+/* Base styles */
 body {
   background-color: #002b36;
   color: #dfe8e8; /* light gray-blue */
@@ -41,16 +42,54 @@ a:hover {
 }
 
 h1, h2, h3 {
-  color: #b58900; /* change this to your preferred color */
+  color: #b58900; /* accent color */
   margin-top: 1.5em;
   margin-bottom: 0.5em;
   font-size: 1.7em;
 }
 
+/* Company icons */
 .company-icon {
   height: 1.5em;
   width: 1.5em;
-  vertical-align: middle;
-  margin-right: 0.5ch;
   filter: invert(80%); /* makes icons visible on dark backgrounds */
+}
+
+/* Job entry container */
+.job-entry {
+  margin-bottom: 1.5em; /* space between jobs */
+}
+
+/* Job entry header: icon + company info */
+.job-entry-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* space between icon and text */
+  margin-bottom: 0.3em; /* space before bullets */
+}
+
+.job-entry-header strong {
+  font-size: 1em;
+}
+
+.job-entry-header em {
+  font-style: italic;
+  font-size: 0.9em;
+  margin-left: 0.3em;
+}
+
+/* Job bullets */
+.job-entry ul {
+  margin: 0.3em 0 1em 1.5em; /* top/right/bottom/left */
+  padding: 0;
+  list-style-type: disc;
+}
+
+.job-entry li {
+  line-height: 1.4;
+  margin-bottom: 0.5em; /* consistent spacing between bullets */
+}
+
+.job-entry li strong {
+  font-weight: 600; /* consistent bold weight */
 }
