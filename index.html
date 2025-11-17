@@ -31,7 +31,7 @@
       body {
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
           "Segoe UI", sans-serif;
-        background: radial-gradient(circle at top, #1e293b 0, #0f172a 50%, #020617 100%);
+        background: radial-gradient(circle at top, #2d3748 0, #1a202c 50%, #0f172a 100%);
         color: var(--text);
         min-height: 100vh;
         line-height: 1.6;
@@ -66,13 +66,14 @@
         font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
         line-height: 1.2;
         margin-bottom: 12px;
-        background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 75%, #b45309 100%);
+        background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 25%, #d97706 60%, #b45309 100%);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         font-weight: 700;
         letter-spacing: -0.02em;
-        text-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
+        filter: drop-shadow(0 0 30px rgba(251, 191, 36, 0.7)) drop-shadow(0 4px 15px rgba(217, 119, 6, 0.5));
+        position: relative;
       }
 
       .tagline {
@@ -260,6 +261,8 @@
       .btn:hover {
         background: rgba(251, 191, 36, 0.15);
         border-color: #fbbf24;
+        transform: translateY(-1px);
+        box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
       }
 
       .btn-primary {
