@@ -2,85 +2,436 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Aatman Shah</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aatman Shah – Software Engineer</title>
+    <meta name="description" content="Experienced Software Engineer based in Sacramento, CA. Passionate about building scalable, performant backend systems and infrastructure." />
     <link rel="icon" href="assets/img/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #050816;
+        --bg-alt: #080b16;
+        --accent: #4f46e5;
+        --accent-soft: rgba(79, 70, 229, 0.14);
+        --text: #ffffff;
+        --muted: #cbd5e1;
+        --border-subtle: rgba(148, 163, 184, 0.2);
+        --card: rgba(15, 23, 42, 0.9);
+        --radius-xl: 18px;
+        --radius-2xl: 24px;
+        --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
+        --shadow-subtle: 0 10px 30px rgba(15, 23, 42, 0.55);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+          "Segoe UI", sans-serif;
+        background: radial-gradient(circle at top, #1e293b 0, #0f172a 50%, #020617 100%);
+        color: var(--text);
+        min-height: 100vh;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .page {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 32px 20px 40px;
+      }
+
+      header {
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+      }
+
+      .header-content {
+        flex: 1;
+      }
+
+      .header-links {
+        display: flex;
+        gap: 12px;
+        margin-top: 8px;
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 3vw + 1rem, 3rem);
+        line-height: 1.2;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 25%, #f59e0b 50%, #d97706 75%, #b45309 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
+      }
+
+      .tagline {
+        font-size: 1rem;
+        color: var(--muted);
+        max-width: 42rem;
+        margin-bottom: 20px;
+      }
+
+      .pill-row {
+        display: inline-flex;
+        gap: 10px;
+        margin-bottom: 24px;
+        flex-wrap: wrap;
+      }
+
+      .pill {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        padding: 5px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.5);
+        background: rgba(15, 23, 42, 0.85);
+        color: var(--muted);
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 48px;
+        margin-bottom: 20px;
+        background: linear-gradient(120deg, #fbbf24, #f59e0b, #d97706);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-weight: 600;
+      }
+
+      .card {
+        border-radius: var(--radius-xl);
+        background: var(--card);
+        border: 1px solid var(--border-subtle);
+        padding: 20px 22px;
+        box-shadow: var(--shadow-subtle);
+        margin-bottom: 18px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        inset: -40%;
+        background:
+          radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.12), transparent 55%),
+          radial-gradient(circle at 90% 20%, rgba(34, 197, 94, 0.08), transparent 55%);
+        opacity: 0.4;
+        pointer-events: none;
+      }
+
+      .card-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .job-header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 12px;
+      }
+
+      .company-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 4px;
+      }
+
+      .job-title {
+        flex: 1;
+      }
+
+      .job-title strong {
+        font-size: 1.05rem;
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .job-title .role {
+        font-size: 0.9rem;
+        color: var(--muted);
+        display: block;
+        margin-top: 2px;
+      }
+
+      .job-title em {
+        font-size: 0.8rem;
+        color: var(--muted);
+        font-style: normal;
+        opacity: 0.8;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 10px;
+      }
+
+      ul li {
+        font-size: 0.9rem;
+        color: var(--muted);
+        margin-bottom: 10px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      ul li::before {
+        content: "◦";
+        position: absolute;
+        left: 0;
+        color: var(--accent);
+        font-size: 0.9rem;
+      }
+
+      .education-card, .hobbies-card, .connect-card {
+        border-radius: var(--radius-xl);
+        background: var(--card);
+        border: 1px solid var(--border-subtle);
+        padding: 18px 22px;
+        box-shadow: var(--shadow-subtle);
+      }
+
+      .education-card p, .hobbies-card p {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .education-card strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      .hobbies-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .hobby-tag {
+        font-size: 0.8rem;
+        padding: 8px 12px;
+        border-radius: 12px;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.4);
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .connect-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        color: var(--text);
+        border: 1px solid rgba(251, 191, 36, 0.4);
+        text-decoration: none;
+        background: rgba(15, 23, 42, 0.6);
+        transition: all 0.2s;
+      }
+
+      .btn:hover {
+        background: rgba(251, 191, 36, 0.15);
+        border-color: #fbbf24;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+        border: none;
+        color: #0f172a;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
+        background: linear-gradient(135deg, #fcd34d, #fbbf24, #f59e0b);
+      }
+
+      footer {
+        margin-top: 40px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(30, 64, 175, 0.4);
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+        }
+
+        .header-links {
+          width: 100%;
+        }
+
+        .job-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .hobbies-grid {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+      }
+    </style>
   </head>
-<body>
-  <div id="container">
-    <h1>Aatman Shah</h1>
-    <p>> Experienced Software Engineer based in Sacramento, CA. <br>
-      > Passionate about building scalable, performant backend systems and infrastructure.</p>
+  <body>
+    <div class="page">
+      <header>
+        <div class="header-content">
+          <h1>Aatman Shah</h1>
+          <p class="tagline">
+            Experienced Software Engineer based in Sacramento, CA. Passionate about building scalable, 
+            performant backend systems and infrastructure.
+          </p>
+          <div class="pill-row">
+            <span class="pill">Backend Systems</span>
+            <span class="pill">AWS & Infrastructure</span>
+            <span class="pill">Distributed Systems</span>
+          </div>
+        </div>
+        <div class="header-links">
+          <a href="https://www.linkedin.com/in/aatman-shah-9b1469123/" class="btn">LinkedIn</a>
+          <a href="mailto:aatmanshah@yahoo.com" class="btn btn-primary">Email Me</a>
+          <a href="assets/AatmanShahResume.pdf" target="_blank" class="btn">Resume</a>
+        </div>
+      </header>
 
-    <h2>Experience</h2>
+      <h2>Experience</h2>
 
-    <div class="job-entry">
-        <img src="assets/icons/smartsheet.svg" alt="Smartsheet" class="company-icon" />
-        <strong>Smartsheet</strong> – Software Engineer II - Platform <em>(May 2022 – Present)</em>
-        <ul>
-            <li>
-                Played a key role in designing and launching a **new decoupled service**, leading the migration of public API traffic and ensuring a smooth transition for millions of customer requests.
-            </li>
-            <li>
-                Scaled a real-time data aggregation service to reliably process **10 - 12M requests/day** by migrating from EC2 to **ECS Fargate** and implementing a stateless S3-based cache, cutting p99 latency by **19%**.
-            </li>
-            <li>
-                Built and deployed **event-driven, serverless applications** (AWS Lambda/SQS) to manage core service state, enabling a scalable and cost-efficient architecture.
-            </li>
-            <li>
-                Led initiatives to improve monitoring and alerting, reducing Mean Time-to-Resolution (**MTTR**) for critical production incidents by over **30%** during on-call rotations.
-            </li>
-        </ul>
+      <div class="card">
+        <div class="card-content">
+          <div class="job-header">
+            <img src="assets/icons/smartsheet.svg" alt="Smartsheet" class="company-icon" />
+            <div class="job-title">
+              <strong>Smartsheet</strong>
+              <span class="role">Software Engineer II - Platform</span>
+              <em>May 2022 – Present</em>
+            </div>
+          </div>
+          <ul>
+            <li>Worked on designing and launching a new decoupled service, leading the migration of public API traffic. Drove performance tuning, bug resolution, and stability improvements during rollout, ensuring a smooth transition for millions of customer requests.</li>
+            <li>Scaled a real-time data aggregation service to reliably process <strong>10 - 12M requests/day</strong> by migrating from EC2 to <strong>ECS Fargate</strong>, implementing a stateless S3-based cache, and automating infrastructure with <strong>Terraform/Terragrunt</strong>, cutting p99 latency by <strong>19%</strong>.</li>
+            <li>Built event-driven, serverless applications with <strong>AWS Lambda</strong>, <strong>SNS</strong>, and <strong>SQS</strong> to manage core service state, enabling a scalable and cost-efficient architecture with an emphasis on fault tolerance and reliability.</li>
+            <li>Led initiatives to improve monitoring and alerting, reducing mean time-to-resolution (<strong>MTTR</strong>) for critical production incidents by over <strong>30%</strong> and enabling faster debugging during on-call rotations.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="job-header">
+            <img src="assets/icons/gm.svg" alt="General Motors" class="company-icon" />
+            <div class="job-title">
+              <strong>General Motors</strong>
+              <span class="role">Software Engineer</span>
+              <em>Mar 2020 – May 2022</em>
+            </div>
+          </div>
+          <ul>
+            <li>Decomposed monoliths into microservices improving performance by 3–5x; implemented parallel request processing.</li>
+            <li>Integrated Apache Kafka for async messaging; deployed via Pivotal Cloud Foundry.</li>
+            <li>Used Java, Spring, API Gateways, MySQL, IntelliJ, CI/CD tools.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="job-header">
+            <img src="assets/icons/nisum.jpg" alt="Nisum Technologies" class="company-icon" />
+            <div class="job-title">
+              <strong>Nisum Technologies</strong>
+              <span class="role">Software Engineer, Intern</span>
+              <em>Jun 2019 – Aug 2019</em>
+            </div>
+          </div>
+          <ul>
+            <li>Built backend for a RESTful e-commerce system using Java + Spring.</li>
+            <li>Migrated the service to Azure and set up Jenkins for CI/CD.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="job-header">
+            <img src="assets/icons/beehive.jpg" alt="Beehive AI" class="company-icon" />
+            <div class="job-title">
+              <strong>Beehive AI</strong>
+              <span class="role">Software Engineering Intern</span>
+              <em>Feb 2019 – May 2019</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-content">
+          <div class="job-header">
+            <img src="assets/icons/intel.svg" alt="Intel" class="company-icon" />
+            <div class="job-title">
+              <strong>Intel</strong>
+              <span class="role">Firmware Validation Intern</span>
+              <em>Jun 2016 – Aug 2016</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2>Education</h2>
+      <div class="education-card">
+        <p><strong>Santa Clara University</strong> – B.S. Computer Science <em>(2016 – 2019)</em></p>
+        <p style="margin-top: 8px;">Relevant coursework: Algorithms, Data Structures, OOP, Networks, Logic Design, Software Design</p>
+      </div>
+
+      <h2>Hobbies</h2>
+      <div class="hobbies-card">
+        <div class="hobbies-grid">
+          <div class="hobby-tag">🎳 Bowling</div>
+          <div class="hobby-tag">📈 Finance</div>
+          <div class="hobby-tag">🧠 Philosophy</div>
+          <div class="hobby-tag">🚗 Automotive</div>
+          <div class="hobby-tag">🚀 Space</div>
+        </div>
+      </div>
+
+      <footer>
+        © <span id="year"></span> Aatman Shah. All rights reserved.
+      </footer>
     </div>
 
-    <div class="job-entry">
-      <img src="assets/icons/gm.svg" alt="General Motors" class="company-icon" />
-      <strong>General Motors</strong> – Software Engineer <em>(Mar 2020 – May 2022)</em>
-      <ul>
-        <li>Decomposed monoliths into microservices improving performance by 3–5x; implemented parallel request processing.</li>
-        <li>Integrated Apache Kafka for async messaging; deployed via Pivotal Cloud Foundry.</li>
-        <li>Used Java, Spring, API Gateways, MySQL, IntelliJ, CI/CD tools.</li>
-      </ul>
-    </div>
-
-    <div class="job-entry">
-      <img src="assets/icons/nisum.jpg" alt="Nisum Technologies" class="company-icon" />
-      <strong>Nisum Technologies</strong> – Software Engineer, Intern <em>(Jun 2019 – Aug 2019)</em>
-      <ul>
-        <li>Built backend for a RESTful e-commerce system using Java + Spring.</li>
-        <li>Migrated the service to Azure and set up Jenkins for CI/CD.</li>
-      </ul>
-    </div>
-
-    <div class="job-entry">
-      <img src="assets/icons/beehive.jpg" alt="Beehive AI" class="company-icon" />
-      <strong>Beehive AI</strong> – Software Engineering Intern <em>(Feb 2019 – May 2019)</em>
-    </div>
-
-    <div class="job-entry">
-      <img src="assets/icons/intel.svg" alt="Intel" class="company-icon" />
-      <strong>Intel</strong> – Firmware Validation Intern <em>(Jun 2016 – Aug 2016)</em>
-    </div>
-
-    <h2>Education</h2>
-    <p><strong>Santa Clara University</strong> – B.S. Computer Science <em>(2016 – 2019)</em></p>
-    <p>Relevant coursework: Algorithms, Data Structures, OOP, Networks, Logic Design, Software Design</p>
-
-    <h2>Hobbies</h2>
-    <p>> Bowling<br>
-       > Finance<br>
-       > Philosophy<br>
-       > Automotive<br>
-       > Space</p>
-
-    <h2>Connect</h2>
-    <p>
-      <a href="https://linkedin.com/in/aatman-shah">LinkedIn</a> &ndash;
-      <a href="mailto:aatman.shah@gmail.com">Email</a> &ndash;
-      <a href="assets/AatmanShahResume.pdf" target="_blank">Resume (PDF)</a>
-    </p>
-  </div>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
